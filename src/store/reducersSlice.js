@@ -4,23 +4,23 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     search: {},
     searchUserName: {},
+    filter: true,
 }
-// createSlice - выполняет всю работу по созданию редюсера.
 const reducersSlice = createSlice({
-    // название слайса - произвольное
     name: 'reducers',
     initialState,
-    // actions - указываются в св-ве reducers, ниже:
     reducers: {
         searchStateUpdate: (state, action) => {
             state.search = action.payload
         },
         saveSearchUser: (state, action) => {
             state.searchUserName = action.payload
+        },
+        filterUpdate: (state, action) => {
+            state.filter = action.payload
         }
     },
 })
 
-export const { searchStateUpdate, saveSearchUser } = reducersSlice.actions
-// экспорт редьюсера
+export const { searchStateUpdate, saveSearchUser, filterUpdate } = reducersSlice.actions
 export default reducersSlice.reducer

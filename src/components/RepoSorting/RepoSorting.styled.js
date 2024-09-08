@@ -9,6 +9,7 @@ export const Sort = styled.div`
 
 export const TitleH3 = styled.h3`
     margin-bottom: 7px;
+    text-align: center;
 `
 
 export const ButtonBlock = styled.div`

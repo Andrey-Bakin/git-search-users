@@ -53,3 +53,11 @@ export const AllResults = styled.h3`
     text-decoration: underline;
     color: blue;
 `
+
+export const Error = styled.div`
+    color: red;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 25px;
+    text-align: center;
+`
