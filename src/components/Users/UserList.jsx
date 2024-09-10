@@ -7,21 +7,19 @@ import { getUserInfo } from '../../api/api'
 
 export default function UserList() {
     const dispatch = useDispatch()
-    const [disabled, setDisabled] = useState(false)
+    const [disabled, setDisabled] = useState(-1)
     const userList = useSelector(searchUsersSelector)
-    console.log(userList)
+
     const clickToUser = async (user, index) => {
-        console.log(index)
         try {
-            setDisabled(true)
-            dispatch(setFlag(true))
+            setDisabled(index)
             const response = await getUserInfo(user.login)
             dispatch(setUser(response))
         } catch (error) {
             console.log(error)
         } finally {
             dispatch(setFlag(true))
-            setDisabled(false)
+            setDisabled(-1)
         }
     }
     return (
@@ -36,10 +34,14 @@ export default function UserList() {
                             <S.UserLogin>{user.login}</S.UserLogin>
                             <S.TextUrl>{user.url}</S.TextUrl>
                             <S.GoToUser
-                                disabled={disabled}
-                                onClick={() => clickToUser(user, index)}
+                                disabled={disabled === index}
+                                onClick={() => {
+                                    clickToUser(user, index)
+                                }}
                             >
-                                {disabled ? 'Загрузка...' : 'Подробнее'}
+                                {disabled === index
+                                    ? 'Загрузка...'
+                                    : 'Подробнее'}
                             </S.GoToUser>
                         </S.UserInfo>
                     ))}

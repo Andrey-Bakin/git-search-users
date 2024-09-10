@@ -53,7 +53,6 @@ export const UserAvatar = styled.img`
 `
 
 export const UserLogin = styled.p`
-    // height: 52px;
     height: 30px;
     font-size: 22px;
     font-weight: 500;

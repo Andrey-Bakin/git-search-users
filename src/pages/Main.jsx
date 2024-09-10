@@ -15,11 +15,10 @@ function Main() {
     const openModalInfo = useSelector(flagSelector)
     return (
         <S.MainlBlock>
-            <Search setLoading={setLoading}/>
+            <Search setLoading={setLoading} />
             <Sorting />
             {openModalInfo && <UserInfoModal />}
-            {loading ? <Loader/> : <UserList/>}
-            <UserList />
+            {loading ? <Loader /> : <UserList />}
             <Pagination />
             <Outlet />
         </S.MainlBlock>

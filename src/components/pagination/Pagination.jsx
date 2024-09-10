@@ -38,7 +38,6 @@ export default function Pagination() {
             dispatch(saveSearchUser(users))
         } catch (error) {
             if (error.response) {
-                // Проверяем, существует ли error.response
                 switch (error.response.status) {
                     case 403:
                         setError('Слишком много запросов, повторите позднее')
@@ -53,7 +52,6 @@ export default function Pagination() {
                         setError('Произошла непредвиденная ошибка')
                 }
             } else {
-                // Общая обработка ошибок на случай, если error.response не существует
                 setError('Произошла ошибка подключения, попробуйте позже')
                 console.error('Error details:', error)
             }
@@ -63,7 +61,6 @@ export default function Pagination() {
     }
 
     const prev = () => {
-        console.log(currentPage)
         if (currentPage > 1) {
             const newCurrentPage = currentPage - 1
             dispatch(setPageNumber(newCurrentPage))
@@ -72,9 +69,7 @@ export default function Pagination() {
     }
 
     const next = () => {
-        console.log(allPagesCount)
         if (currentPage < allPagesCount) {
-            console.log('test')
             const newCurrentPage = currentPage + 1
             dispatch(setPageNumber(newCurrentPage))
             sendReqToApi(newCurrentPage)
