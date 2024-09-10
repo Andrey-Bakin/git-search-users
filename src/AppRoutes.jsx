@@ -7,7 +7,6 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Main />}></Route>
-            <Route path="/info" element={<UserInfoModal />}></Route>
         </Routes>
     )
 }
