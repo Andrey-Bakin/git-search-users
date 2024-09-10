@@ -1,7 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
-import { act } from 'react'
 
 const initialState = {
     user: {},

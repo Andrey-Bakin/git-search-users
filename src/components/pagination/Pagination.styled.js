@@ -22,8 +22,7 @@ export const ButtonPrev = styled.button`
     }
 `
 
-export const ButtonNext = styled(ButtonPrev)`
-`
+export const ButtonNext = styled(ButtonPrev)``
 
 export const CurrentPageNumberBlock = styled.div`
     background-color: burlywood;
