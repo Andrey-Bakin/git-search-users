@@ -41,21 +41,21 @@ export default function Pagination() {
                 // Проверяем, существует ли error.response
                 switch (error.response.status) {
                     case 403:
-                        setError('Слишком много запросов, повторите позднее');
-                        break;
+                        setError('Слишком много запросов, повторите позднее')
+                        break
                     case 422:
-                        setError('ошибка на сервере, повторите позднее');
-                        break;
+                        setError('ошибка на сервере, повторите позднее')
+                        break
                     case 503:
-                        setError('Сервер не доступен, повторите позже');
-                        break;
+                        setError('Сервер не доступен, повторите позже')
+                        break
                     default:
-                        setError('Произошла непредвиденная ошибка');
+                        setError('Произошла непредвиденная ошибка')
                 }
             } else {
                 // Общая обработка ошибок на случай, если error.response не существует
-                setError('Произошла ошибка подключения, попробуйте позже');
-                console.error('Error details:', error);
+                setError('Произошла ошибка подключения, попробуйте позже')
+                console.error('Error details:', error)
             }
         } finally {
             setDisabled(false)
@@ -94,7 +94,6 @@ export default function Pagination() {
                     Вперед
                 </S.ButtonNext>
             </S.PagesContainer>
-            
         </>
     )
 }

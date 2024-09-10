@@ -54,7 +54,7 @@ export const SearchButton = styled.button`
 export const AllResults = styled.h3`
     text-decoration: underline;
     color: blue;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 `
 
 export const Error = styled.div`

@@ -36,6 +36,7 @@ export default function Search() {
                 avatar: user.avatar_url,
                 url: user.url,
                 id: user.id,
+                link: user.html_url,
             }))
 
             dispatch(saveSearchUser(users))

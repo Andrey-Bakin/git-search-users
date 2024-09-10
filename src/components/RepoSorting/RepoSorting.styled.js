@@ -4,7 +4,7 @@ export const Sort = styled.div`
     display: ${(props) => props.display};
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
 `
 
 export const TitleH3 = styled.h3`

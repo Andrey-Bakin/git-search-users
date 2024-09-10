@@ -8,16 +8,16 @@ export const UserListBlock = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 270px);
-    grid-auto-rows: 455px;
+    grid-auto-rows: 315px;
     grid-gap: 20px 45px;
     overflow: unset;
-    height: 930px;
+    height: 670px;
     
 `
 
 export const UserInfo = styled.div`
     width: 270px;
-    height: 455px;
+    height: 315px;
     display: flex;
     flex-direction: column;
     border: 1px solid;
@@ -28,14 +28,14 @@ export const UserInfo = styled.div`
 `
 
 export const UserBlockImg = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
 `
 
 export const UserAvatar = styled.img`
     width: 100%;
-    height: 90%;
+    height: 80%;
     padding-top: 15px;
 `
 

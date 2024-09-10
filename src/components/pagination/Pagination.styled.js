@@ -23,27 +23,6 @@ export const ButtonPrev = styled.button`
 `
 
 export const ButtonNext = styled(ButtonPrev)`
-    /* width: 300px;
-    height: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    background-color: black;
-    padding: 10px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: white;
-    margin: 10px;
-    text-align: center;
-    transition: background-color 0.4s ease;
-    cursor: pointer;
-
-    &:hover {
-        background-color: burlywood;
-    } */
 `
 
 export const CurrentPageNumberBlock = styled.div`

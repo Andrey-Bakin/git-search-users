@@ -1,13 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { searchUsersSelector } from '../../store/toolkitSelectors'
 import * as S from './UserList.styled'
+import { setFlag, setUser } from '../../store/reducersSlice'
+import { getUserInfo } from '../../api/api'
 
 export default function UserList() {
+    const dispatch = useDispatch()
+    const [disabled, setDisabled] = useState(false)
     const userList = useSelector(searchUsersSelector)
     console.log(userList)
-    const clickToUser = (UserLogin) => {
-        console.log(UserLogin)
+    const clickToUser = async (user) => {
+        try {
+            setDisabled(true)
+            dispatch(setFlag(true))
+            const response = await getUserInfo(user.login)
+            dispatch(setUser(response))
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setDisabled(false)
+        }
     }
     return (
         <S.Parent>
@@ -20,7 +33,12 @@ export default function UserList() {
                             </S.UserBlockImg>
                             <S.UserLogin>{user.login}</S.UserLogin>
                             <S.TextUrl>{user.url}</S.TextUrl>
-                            <S.GoToUser onClick={() => clickToUser(user.login)}>Подробнее</S.GoToUser>
+                            <S.GoToUser
+                                disabled={disabled}
+                                onClick={() => clickToUser(user)}
+                            >
+                                {disabled ? 'Загрузка...' : 'Подробнее'}
+                            </S.GoToUser>
                         </S.UserInfo>
                     ))}
                 </S.UserListBlock>

@@ -1,13 +1,17 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { act } from 'react'
 
 const initialState = {
+    user: {},
     search: {},
     searchUserName: {},
     filter: true,
     pageNumber: 1,
     totalPagesFound: {},
     textInputSearch: {},
+    flag: false,
 }
 const reducersSlice = createSlice({
     name: 'reducers',
@@ -31,6 +35,12 @@ const reducersSlice = createSlice({
         updateTextInputSearch: (state, action) => {
             state.textInputSearch = action.payload
         },
+        setUser: (state, action) => {
+            state.user = action.payload
+        },
+        setFlag: (state, action) => {
+            state.flag = action.payload
+        },
     },
 })
 
@@ -41,5 +51,7 @@ export const {
     setPageNumber,
     updateTotalPagesCount,
     updateTextInputSearch,
+    setUser,
+    setFlag,
 } = reducersSlice.actions
 export default reducersSlice.reducer
