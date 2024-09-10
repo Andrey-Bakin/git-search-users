@@ -8,10 +8,10 @@ export const UserListBlock = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 270px);
-    grid-auto-rows: 465px;
+    grid-auto-rows: 455px;
     grid-gap: 20px 45px;
     overflow: unset;
-    //height: 922px;
+    height: 930px;
     
 `
 

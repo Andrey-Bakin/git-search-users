@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import searchQuerryGetUsers from '../../api/api'
-import { saveSearchUser } from '../../store/reducersSlice'
+import {
+    saveSearchUser,
+    updateTextInputSearch,
+    updateTotalPagesCount,
+} from '../../store/reducersSlice'
 import * as S from './Search.styled'
 import { filterSelector } from '../../store/toolkitSelectors'
 
@@ -12,20 +16,30 @@ export default function Search() {
     const [disabled, setDisabled] = useState(false)
     const [match, setMatch] = useState(null)
     const [error, setError] = useState(null)
+    const page = 1
     const searchClick = async () => {
         try {
             setDisabled(true)
-            const response = await searchQuerryGetUsers({ userName, filter })
-            //console.log(response)
+            const response = await searchQuerryGetUsers({
+                userName,
+                filter,
+                page,
+            })
             setMatch(response.total_count)
+
+            const ShownPage = 8
+            const allPages = Math.ceil(response.total_count / ShownPage)
+            dispatch(updateTotalPagesCount(allPages))
+
             const users = response.items.map((user) => ({
                 login: user.login,
                 avatar: user.avatar_url,
                 url: user.url,
                 id: user.id,
             }))
-            //console.log(users)
+
             dispatch(saveSearchUser(users))
+            dispatch(updateTextInputSearch(userName))
         } catch (error) {
             console.log(error.message)
             if (error.response.status === 403) {
@@ -47,7 +61,7 @@ export default function Search() {
     }
 
     useEffect(() => {
-        if (!userName) return 
+        if (!userName) return
         searchClick()
     }, [filter])
 
@@ -64,7 +78,7 @@ export default function Search() {
                     }}
                 />
                 <S.SearchButton disabled={disabled} onClick={searchClick}>
-                    {disabled ? 'идет поиск...' : 'Поиск'}
+                    {disabled ? 'Идет поиск...' : 'Поиск'}
                 </S.SearchButton>
             </S.SearchBlock>
             <S.AllResults>Всего найдено результатов: {match}</S.AllResults>

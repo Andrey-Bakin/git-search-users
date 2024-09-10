@@ -6,8 +6,18 @@ export const MainlBlock = styled.div`
     align-items: center;
 `
 
+export const SearchContainer = styled.div`
+    width: 1215px;
+    text-align: center;
+`
+
+export const TitleH3 = styled.h3`
+    margin-top: 15px;
+    margin-bottom: 15px;
+`
+
 export const SearchBlock = styled.div`
-    width: 100%;
+    width: 95;
     padding: 11px;
     display: flex;
     align-items: center;
@@ -40,18 +50,11 @@ export const SearchButton = styled.button`
         background-color: burlywood;
     }
 `
-export const SearchContainer = styled.div`
-    width: 1215px;
-    text-align: center;
-`
-export const TitleH3 = styled.h3`
-    margin-top: 15px;
-    margin-bottom: 15px;
-`
 
 export const AllResults = styled.h3`
     text-decoration: underline;
     color: blue;
+    margin-bottom: 40px;
 `
 
 export const Error = styled.div`
