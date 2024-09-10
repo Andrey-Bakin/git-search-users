@@ -61,6 +61,9 @@ export const GoToUser = styled.button`
     &:hover {
         background-color: burlywood;
     }
+    &:disabled {
+        background: gray;
+    }
 `
 
 export const UserLogin = styled.p`

@@ -9,7 +9,7 @@ import {
 import * as S from './Search.styled'
 import { filterSelector } from '../../store/toolkitSelectors'
 
-export default function Search() {
+export default function Search({ setLoading }) {
     const filter = useSelector(filterSelector)
     const dispatch = useDispatch()
     const [userName, setUserName] = useState('')
@@ -19,6 +19,7 @@ export default function Search() {
     const page = 1
     const searchClick = async () => {
         try {
+            setLoading(true)
             setDisabled(true)
             const response = await searchQuerryGetUsers({
                 userName,
@@ -52,6 +53,7 @@ export default function Search() {
             }
         } finally {
             setDisabled(false)
+            setLoading(false)
         }
     }
 
