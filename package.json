@@ -2,7 +2,7 @@
   "name": "git-search-users",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Andrey-Bakin/.github.io/git-search-users/",
+  "homepage": "https://Andrey-Bakin.github.io/git-search-users/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "@testing-library/user-event": "^13.5.0",

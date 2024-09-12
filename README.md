@@ -23,7 +23,7 @@ Git-user-finder
 - При нажатии на пользователя - отображаются его: фото, имя, локация, и общее число репозиториев, количество подписчиков, ссылка на профиль GitHub и биография.
 
 Ссылка на deploy проекта на gh pages::
-https://Andrey-Bakin/.github.io/git-search-users/
+https://Andrey-Bakin.github.io/git-search-users/
 
 Стек технологий используемый при разработке проекта:
 
